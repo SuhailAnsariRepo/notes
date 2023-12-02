@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "bf173726-877e-418c-a227-c1df258e2a2a",
+		"name": "Notes API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18753205",
+		"_collection_link": "https://red-meteor-882109.postman.co/workspace/New-Team-Workspace~1af3cf7a-1d20-4204-ae44-ce47d9d7bb88/collection/18753205-bf173726-877e-418c-a227-c1df258e2a2a?action=share&source=collection_link&creator=18753205"
+	},
+	"item": [
+		{
+			"name": "Authenticate User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"number\": \"9910921083\",\r\n    \"password\": \"Suhail@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v1/auth/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register a user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"number\": \"9999999999\",\r\n    \"password\": \"Suha@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Folder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5OTg4Nzc2NjU1IiwiaWF0IjoxNjgxMDQ0MTYzLCJleHAiOjE2ODEwNDU2MDN9.zvXyP529ITEzBYK_3nCEAOoW7VvXP7l63PswlmCwiBg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test\",\r\n    \"private\": false,\r\n    \"parent\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v1/notes-api/folder/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"notes-api",
+						"folder",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Folders with content",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5OTg4Nzc2NjU1IiwiaWF0IjoxNjgxMDQ0MTYzLCJleHAiOjE2ODEwNDU2MDN9.zvXyP529ITEzBYK_3nCEAOoW7VvXP7l63PswlmCwiBg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v1/notes-api/folder/folders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"notes-api",
+						"folder",
+						"folders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Notes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5OTg4Nzc2NjU1IiwiaWF0IjoxNjgxMDQ0MTYzLCJleHAiOjE2ODEwNDU2MDN9.zvXyP529ITEzBYK_3nCEAOoW7VvXP7l63PswlmCwiBg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"notes\": [\r\n        \"Sample Note 1\",\r\n        \"Sample Note 2\",\r\n        \"Sample Note 3\"\r\n    ],\r\n    \"folderName\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v1/notes-api/note/create-note",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"notes-api",
+						"note",
+						"create-note"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Image to Folder",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5OTEwOTIxMDgzIiwiaWF0IjoxNzAxNTMxMjkyLCJleHAiOjE3MDE1MzI3MzJ9.nP8WFdf3H7gwvj5CsDe1PXgWqvNGAySjgPdSU-6Asz0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/suhail/Downloads/IMG_20231118_202417.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v1/notes-api/note/add-image?folder-name=Doobi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"notes-api",
+						"note",
+						"add-image"
+					],
+					"query": [
+						{
+							"key": "folder-name",
+							"value": "Doobi"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Folder's Content",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5OTg4Nzc2NjU1IiwiaWF0IjoxNjgxMDQ0MTYzLCJleHAiOjE2ODEwNDU2MDN9.zvXyP529ITEzBYK_3nCEAOoW7VvXP7l63PswlmCwiBg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/v1/notes-api/folder/folders/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v1",
+						"notes-api",
+						"folder",
+						"folders",
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
